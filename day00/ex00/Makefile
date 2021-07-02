@@ -9,8 +9,6 @@ RM			= 	rm -rf
 CC			=	clang++
 CFLAGS		=	-Wall -Wextra -Werror
 OFLAGS		=	 -Wall -Wextra -Werror  -c 
-DFLAGS		=	-g -Wall -Wextra -Werror
-
 all: $(NAME) 
 $(NAME): $(OBJS_PATH) $(OBJS) 
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
@@ -21,8 +19,6 @@ $(OBJS_PATH):
 $(OBJS_PATH)%.o : $(SRCS_PATH)%.c
 	$(CC) $(OFLAGS) $< -o $@
 
-debug:
-	$(CC) $(DFLAGS) $(SRCS) -o $(NAME)
 clean:
 	$(RM) $(OBJS_PATH)
 
