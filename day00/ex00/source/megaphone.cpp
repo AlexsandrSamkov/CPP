@@ -1,6 +1,4 @@
-#include <iostream>
-
-using namespace std;
+#include "../includes/header.hpp"
 
 int main(int argc, char **argv)
 {
