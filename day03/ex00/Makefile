@@ -1,6 +1,6 @@
-NAME		= 	ex00
+NAME		= 	ex01
 OBJS_PATH	=	objects/
-HEAD_LST		=	ClapTrap.hpp
+HEAD_LST	= 	ClapTrap.hpp
 HEADS		=	$(addprefix -I , $(HEAD_LST))
 SRCS_PATH	=	./
 SRCS_LIST	=	ClapTrap.cpp main.cpp
@@ -25,10 +25,8 @@ $(OBJS_PATH)%.o : $(SRCS_PATH)%.cpp $(HEAD_LST)
 
 run: all
 	./$(NAME)
-
 debug:
 	$(CC) -g $(FLAGS) $(HEADS) $(SRCS) -o $(NAME)
-
 clean:
 	$(RM) $(OBJS_PATH)
 
@@ -37,4 +35,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re run debug
+.PHONY: all clean fclean re run

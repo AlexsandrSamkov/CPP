@@ -1,6 +1,6 @@
 NAME		= 	ex01
 OBJS_PATH	=	objects/
-HEAD_LST	=	ScavTrap.hpp ClapTrap.hpp
+HEAD_LST	= 	ScavTrap.hpp ClapTrap.hpp
 HEADS		=	$(addprefix -I , $(HEAD_LST))
 SRCS_PATH	=	./
 SRCS_LIST	=	ClapTrap.cpp main.cpp ScavTrap.cpp

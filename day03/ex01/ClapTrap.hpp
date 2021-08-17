@@ -9,9 +9,9 @@ public:
 /*                         CONSTRUCTORS AND DESTRUCTORS                       */
 /******************************************************************************/
     ClapTrap();
-    ClapTrap(ClapTrap const &clapTrap) ;
-    ~ClapTrap();
+    ClapTrap(ClapTrap const &clapTrap);
     ClapTrap(std::string const &name);
+    virtual ~ClapTrap();
 /******************************************************************************/
 /*                           OVERLOADING OPERATORS                            */
 /******************************************************************************/
@@ -20,7 +20,6 @@ public:
 /*                            GETTERS AND SETTERS                             */
 /******************************************************************************/
     std::string getName() const;
-    std::string getNameClass() const;
     unsigned int getHitPoints() const;
     unsigned int getEnergyPoints() const;
     unsigned int getAttackDamage() const;
@@ -29,16 +28,15 @@ public:
 /******************************************************************************/
 /*                              OTHER METHODS                                 */
 /******************************************************************************/
-    void takeDamge(unsigned int amount);
-    void attack(std::string const &target);
-    void beRepaired(unsigned int amount);
+    virtual void takeDamge(unsigned int amount);
+    virtual void attack(std::string const &target);
+    virtual void beRepaired(unsigned int amount);
 
 protected:
     std::string     _name;
     unsigned int    _hitpoints;
     unsigned int    _enegryPoints;
     unsigned int    _attackDamage;
-    std::string     _nameClass;
 };
-
+std::ostream &operator<<(std::ostream &output, const ClapTrap &clapTrap);
 #endif

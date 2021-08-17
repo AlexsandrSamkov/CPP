@@ -1,9 +1,9 @@
-NAME		= 	ex01
+NAME		= 	ex02
 OBJS_PATH	=	objects/
-HEAD_LST		= ScavTrap.hpp ClapTrap.hpp
+HEAD_LST	= 	ScavTrap.hpp ClapTrap.hpp FragTrap.hpp
 HEADS		=	$(addprefix -I , $(HEAD_LST))
 SRCS_PATH	=	./
-SRCS_LIST	=	ClapTrap.cpp main.cpp ScavTrap.cpp
+SRCS_LIST	=	ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp
 SRCS		=	$(addprefix $(SRCS_PATH), $(SRCS_LIST))
 OBJS_LIST	=	$(patsubst %.cpp, %.o, $(SRCS_LIST))
 OBJS		=	$(addprefix $(OBJS_PATH),$(OBJS_LIST))

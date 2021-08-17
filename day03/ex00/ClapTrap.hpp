@@ -12,7 +12,6 @@ public:
     ClapTrap(ClapTrap const &clapTrap);
     ClapTrap(std::string const &name);
     ~ClapTrap();
-
 /******************************************************************************/
 /*                           OVERLOADING OPERATORS                            */
 /******************************************************************************/
@@ -21,7 +20,6 @@ public:
 /*                            GETTERS AND SETTERS                             */
 /******************************************************************************/
     std::string getName() const;
-    std::string getNameClass() const;
     unsigned int getHitPoints() const;
     unsigned int getEnergyPoints() const;
     unsigned int getAttackDamage() const;
@@ -39,7 +37,8 @@ private:
     unsigned int    _hitpoints;
     unsigned int    _enegryPoints;
     unsigned int    _attackDamage;
-    std::string     _nameClass;
 };
+
+std::ostream &operator<<(std::ostream &output, const ClapTrap &clapTrap);
 
 #endif

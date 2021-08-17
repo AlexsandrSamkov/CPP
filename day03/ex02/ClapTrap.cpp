@@ -9,8 +9,7 @@ ClapTrap::ClapTrap() {
     _attackDamage = 0;
     _enegryPoints = 10;
     _hitpoints = 10;
-    _nameClass = "ClapTrap";
-    std::cout << _nameClass << " default constructor called" << std::endl;
+    std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string const &name) {
@@ -18,7 +17,6 @@ ClapTrap::ClapTrap(std::string const &name) {
     _attackDamage = 0;
     _enegryPoints = 10;
     _hitpoints = 10;
-    _nameClass = "ClapTrap";
     std::cout << "ClapTrap constructor called" << std::endl;
 }
 
@@ -36,10 +34,9 @@ ClapTrap::~ClapTrap() {
 /******************************************************************************/
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &clapTrap) {
-    std::cout << "ClapTrap assignation operator called." << std::endl;
+    std::cout << "ClarTrap overloading = called" << std::endl;
     this->set(clapTrap.getName(), clapTrap.getHitPoints(),\
               clapTrap.getEnergyPoints(), clapTrap.getAttackDamage());
-    _nameClass = clapTrap.getNameClass();
     return (*this);
 }
 
@@ -59,10 +56,6 @@ std::string ClapTrap::getName() const{
     return (_name);
 }
 
-std::string ClapTrap::getNameClass() const{
-    return (_nameClass);
-}
-
 unsigned int ClapTrap::getAttackDamage() const{
     return (_attackDamage);
 }
@@ -80,7 +73,7 @@ unsigned int ClapTrap::getEnergyPoints() const{
 /******************************************************************************/
 
 void ClapTrap::attack(const std::string &target) {
-    std::cout << _nameClass << " " << _name  << " attack " << target\
+    std::cout << "ClapTrap " << _name  << " attack " << target\
      << ", causing " << _attackDamage << " points of damage!" << std::endl;
 }
 
@@ -90,7 +83,7 @@ void ClapTrap::takeDamge(unsigned int amount) {
         tmpAmount--;
         _hitpoints--;
     }
-    std::cout << _nameClass << " " << _name << " received " << amount <<\
+    std::cout << "ClapTrap " << _name << " received " << amount <<\
     " damage. ";
     _hitpoints != 0 ? std::cout << "He has " << _hitpoints <<\
     " hit points left" : std::cout << "He dead.";
@@ -99,6 +92,14 @@ void ClapTrap::takeDamge(unsigned int amount) {
 
 void ClapTrap::beRepaired(unsigned int amount) {
     _hitpoints += amount;
-    std::cout << _nameClass << " " << _name <<  " was repaired. " <<\
+    std::cout << "ClapTrap " << _name <<  " was repaired. " <<\
     "He has " << _hitpoints << " hit points." << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &output, const ClapTrap &clapTrap)
+{
+    output << "Name: " << clapTrap.getName() << ". HP: "\
+    << clapTrap.getHitPoints() << ". Attack: " << clapTrap.getAttackDamage()\
+    << ". EP: " << clapTrap.getEnergyPoints() << ".";
+    return (output);
 }
