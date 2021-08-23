@@ -5,6 +5,9 @@
 
 class Animal {
 public:
+    Animal();
+    Animal(Animal const &animal);
+    Animal &operator=(Animal const &animal);
     virtual ~Animal() = 0;
     virtual std::string getType() const = 0;
     virtual void makeSound() const = 0;

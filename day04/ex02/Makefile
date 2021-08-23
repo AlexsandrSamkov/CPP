@@ -25,6 +25,9 @@ $(OBJS_PATH)%.o : $(SRCS_PATH)%.cpp $(HEAD_LST)
 run: all
 	./$(NAME)
 
+leaks: run
+	leaks --atExit  -- ./$(NAME)
+
 debug:
 	$(CC) -g $(FLAGS) $(HEADS) $(SRCS) -o $(NAME)
 
